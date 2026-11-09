@@ -1,0 +1,17 @@
+<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <title>Laboratorio - Módulo 1:
+Jerarquía Espacial ECS</title> <script src="https://aframe.io/releases/1.6.0/aframe.min.js">
+</script> </head> <body style="margin: 0; overflow: hidden;"> <a-scene background="color: #0b0f19"
+gridhelper="size: 10; divisions: 10; colorCenterLine: #38bdf8"> <!-- Iluminación de la escena -->
+<a-entity light="type: ambient; color: #ffffff; intensity: 0.5"></a-entity> <a-entity light="type:
+directional; color: #38bdf8; intensity: 1.2" position="-2 4 2"></a-entity> <!-- SISTEMA SOLAR
+JERÁRQUICO (Padre: Sol, Hijo: Tierra, Nieto: Luna) --> <!-- Entidad Sol (Origen del sistema local)
+--> <a-entity id="sol-padre" position="0 1.5 -4" animation="property: rotation; to: 0 360 0; loop:
+true; dur: 12000; easing: linear"> <!-- Geometría del Sol --> <a-sphere radius="0.8"
+color="#f59e0b" material="emissive: #f59e0b; emissiveIntensity: 0.5"></a-sphere> <!-- Entidad
+Tierra (Hijo directo del Sol) - Distancia relativa de 2.5 metros en X --> <a-entity id="tierraorbita" position="2.5 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 4000;
+easing: linear"> <!-- Geometría de la Tierra --> <a-sphere radius="0.3" color="#2563eb"></asphere> <!-- Entidad Luna (Nieto del Sol, Hijo directo de la Tierra) - Distancia relativa 0.7m en
+X --> <a-sphere id="luna" position="0.7 0 0" radius="0.1" color="#94a3b8"></a-sphere> </a-entity>
+</a-entity> <!-- Cámara del Usuario con Cursor Gaze para interacción sin manos --> <a-entity
+id="rig" position="0 0 0"> <a-camera position="0 1.6 0"> <a-cursor color="#ef4444" fuse="true"
+fuse-timeout="1200" scale="0.8 0.8 0.8"></a-cursor> </a-camera> </a-entity> </a-scene> </body>
+</html>
